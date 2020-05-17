@@ -65,7 +65,7 @@ Write-Host -ForegroundColor green "Done!`n"
 
 # -- COPY REFERENCE LIB FILES --
 Write-Host -ForegroundColor yellow "Copying MelonLoader libs ..."
-Invoke-Expression -Command ".\copy-references.ps1 ${AudicaPath} ${Name}"
+Invoke-Expression -Command ".\copy-references.ps1 ${AudicaPath} AudicaMod"
 Write-Host -ForegroundColor green "Done!`n"
 
 Write-Host 'Press any key to exit...';
