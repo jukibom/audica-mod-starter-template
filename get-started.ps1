@@ -1,4 +1,4 @@
-Write-Host -ForegroundColor green "`nAudica modding template quick start"
+﻿Write-Host -ForegroundColor green "`nAudica modding template quick start"
 Write-Host -ForegroundColor green "===================================`n"
 
 $DefaultName = "AudicaMod"
@@ -63,6 +63,10 @@ Write-Host -ForegroundColor yellow "Setting mod name / author / version in src/M
 ((Get-Content "${PSScriptRoot}\AudicaMod\src\Main.cs" -Raw) -replace '1.0.0', ${Version}) | Set-Content "${PSScriptRoot}\AudicaMod\src\Main.cs"
 Write-Host -ForegroundColor green "Done!`n"
 
+# -- COPY REFERENCE LIB FILES --
+Write-Host -ForegroundColor yellow "Copying MelonLoader libs ..."
+Invoke-Expression -Command ".\copy-references.ps1 ${AudicaPath} ${Name}"
+Write-Host -ForegroundColor green "Done!`n"
 
 Write-Host 'Press any key to exit...';
 $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
