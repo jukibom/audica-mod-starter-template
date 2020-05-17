@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace AudicaModding
 {
-    public class MyMod : MelonMod
+    public class AudicaMod : MelonMod
     {
         public static class BuildInfo
         {
