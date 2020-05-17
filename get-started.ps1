@@ -12,8 +12,7 @@ Get-ChildItem HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall -Recurse
     $InstallLocation = (Get-ItemProperty $_.PSPath) | Select-Object -ExpandProperty "InstallLocation" -ErrorAction SilentlyContinue
     if ($Name -match "Audica") {
         $DefaultPath = $InstallLocation
-        Write-Host "✅ Found audica installation at $InstallLocation"
-        Write-Host ""
+        Write-Host "✅ Found audica installation at $InstallLocation`n"
     }
 }
 
