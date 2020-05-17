@@ -39,10 +39,6 @@
       <HintPath>lib\Assembly-CSharp-firstpass.dll</HintPath>
       <Private>False</Private>
     </Reference>
-    <Reference Include="AudicaModding">
-      <HintPath>lib\AudicaModding.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
     <Reference Include="Il2CppMono.Security">
       <HintPath>lib\Il2CppMono.Security.dll</HintPath>
       <Private>False</Private>
