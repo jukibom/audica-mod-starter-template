@@ -17,7 +17,7 @@ using AudicaModding;
 [assembly: AssemblyVersion(AudicaMod.BuildInfo.Version)]
 [assembly: AssemblyFileVersion(AudicaMod.BuildInfo.Version)]
 [assembly: NeutralResourcesLanguage("en")]
-[assembly: MelonModInfo(typeof(MyMod), AudicaMod.BuildInfo.Name, AudicaMod.BuildInfo.Version, AudicaMod.BuildInfo.Author, AudicaMod.BuildInfo.DownloadLink)]
+[assembly: MelonModInfo(typeof(AudicaMod), AudicaMod.BuildInfo.Name, AudicaMod.BuildInfo.Version, AudicaMod.BuildInfo.Author, AudicaMod.BuildInfo.DownloadLink)]
 
 
 // Create and Setup a MelonModGame to mark a Mod as Universal or Compatible with specific Games.
