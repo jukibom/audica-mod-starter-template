@@ -1,4 +1,4 @@
-﻿Write-Host -ForegroundColor green "`nAudica modding template quick start"
+Write-Host -ForegroundColor green "`nAudica modding template quick start"
 Write-Host -ForegroundColor green "===================================`n"
 
 $DefaultName = "AudicaMod"
@@ -39,7 +39,6 @@ do {
     else { Write-Host -ForegroundColor red "That doesn't look right! Make sure it's the full path to the directory where `"Audica.exe`" is." }
 }while($pathValid -ne "True")
 
-
 # -- WRITE CHANGES --
 
 # Write name in solution / project structure
@@ -52,7 +51,7 @@ Write-Host -ForegroundColor green "Done!`n"
 
 # Set post-build dll copy
 Write-Host -ForegroundColor yellow "Setting post-build script to copy mod dll to ${DefaultPath}\Mods\${Name}.dll ..."
-$PostBuildScript = "copy `"`$(TargetPath)`" `"${DefaultPath}\Mods\`$(TargetFileName)`""
+$PostBuildScript = "copy `"`$(TargetPath)`" `"${AudicaPath}\Mods\`$(TargetFileName)`""
 ((Get-Content "${PSScriptRoot}\AudicaMod\${Name}.csproj" -Raw) -replace 'echo "Done!"', ${PostBuildScript}) | Set-Content "${PSScriptRoot}\AudicaMod\${Name}.csproj"
 Write-Host -ForegroundColor green "Done!`n"
 
