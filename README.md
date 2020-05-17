@@ -64,7 +64,7 @@ Skip this if the script above completed successfully.
 Open the main `AudicaModding.sln` and browse to `Main.cs`. You'll see it's setup to log out when you press T on the keyboard. 
 Run a build and you should see a new dll file matching the name provided in the get-started script appear in both the local `bin/[Release | Debug]/` and `Audica/Mods` folder.
 
-With MelonMod installed (see discord below), add `--melonloader.console` to audica's launch options in steam or however you're loading Audica.exe and a debug console should spawn along with Audica. If everything's working, pressing T should log out a message!
+With MelonMod installed, add `--melonloader.console` to audica's launch options in steam or however you're loading Audica.exe and a debug console should spawn along with Audica. If everything's working, pressing T should log out a message!
 
 ## Next Steps
 
