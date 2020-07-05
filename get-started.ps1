@@ -39,6 +39,18 @@ do {
     else { Write-Host -ForegroundColor red "That doesn't look right! Make sure it's the full path to the directory where `"Audica.exe`" is." }
 }while($pathValid -ne "True")
 
+
+# -- COPY REFERENCE LIB FILES --
+Write-Host -ForegroundColor yellow "Copying MelonLoader libs ..."
+try {
+    Invoke-Expression -Command ".\copy-references.ps1 `"${AudicaPath}`" AudicaMod" 
+} catch {
+    Write-Host -ForegroundColor red $_ 
+    exit 1
+}
+Write-Host -ForegroundColor green "Done!`n"
+
+
 # -- WRITE CHANGES --
 
 # Write name in solution / project structure
@@ -61,11 +73,6 @@ Write-Host -ForegroundColor yellow "Setting mod name / author / version in src/M
 ((Get-Content "${PSScriptRoot}\AudicaMod\src\Main.cs" -Raw) -replace 'AudicaModStarter',${Name}) | Set-Content "${PSScriptRoot}\AudicaMod\src\Main.cs"
 ((Get-Content "${PSScriptRoot}\AudicaMod\src\Main.cs" -Raw) -replace 'AudicaModAuthor', ${Author}) | Set-Content "${PSScriptRoot}\AudicaMod\src\Main.cs"
 ((Get-Content "${PSScriptRoot}\AudicaMod\src\Main.cs" -Raw) -replace '1.0.0', ${Version}) | Set-Content "${PSScriptRoot}\AudicaMod\src\Main.cs"
-Write-Host -ForegroundColor green "Done!`n"
-
-# -- COPY REFERENCE LIB FILES --
-Write-Host -ForegroundColor yellow "Copying MelonLoader libs ..."
-Invoke-Expression -Command ".\copy-references.ps1 `"${AudicaPath}`" AudicaMod" 
 Write-Host -ForegroundColor green "Done!`n"
 
 Write-Host 'Press any key to exit...';

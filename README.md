@@ -6,7 +6,7 @@ This template bundles melon-mod and a simple dll-building C# solution + csproj.
 
 * You'll need Visual Studio community 2017 setup to build.
 * MelonLoader must be installed in Audica's directory - see https://melonwiki.xyz/#/README
-    * You should have a `MelonLoader\Managed` folder and `winmm.dll` in your Audica root before proceeding.
+    * You should have a `MelonLoader\Managed` folder and `version.dll` in your Audica root before proceeding.
 
 ### Automated setup (recommended!)
 Use `get-started.ps1` (right click => Run With PowerShell) to configure the name / author / version of the mod, copy needed melon loader dll references and add a post-build step to automatically copy the last built debug or release dll to the Audica mods directory.

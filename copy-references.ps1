@@ -12,14 +12,17 @@ if ([string]::IsNullOrWhiteSpace($AudicaFolder) -Or [string]::IsNullOrWhiteSpace
 
 # -- CHECK THIS IS ACTUAL AUDICA FOLDER --
 if (!(Test-Path -Path "${AudicaFolder}\Audica.exe")) {
-    Write-Host -ForegroundColor red "Provided path does not exist or is not the audica folder!"
-    exit
+    throw "Provided path does not exist or is not the audica folder!"
 }
 
 # -- CHECK FOR MELON MOD --
-if (!(Test-Path -Path "${AudicaFolder}\MelonLoader\Managed\") -Or !(Test-Path -Path "${AudicaFolder}\winmm.dll")) {
-    Write-Host -ForegroundColor red "MelonLoader has not been installed in the Audica folder! See the README."
-    exit
+if (!(Test-Path -Path "${AudicaFolder}\MelonLoader\Managed\") -Or !(Test-Path -Path "${AudicaFolder}\version.dll")) {
+    throw "MelonLoader has not been installed in the Audica folder! See the README."
+}
+
+# -- CHECK FOR GENERATED ASSEMBLY DLLS --
+if (!(Test-Path -Path "${AudicaFolder}\MelonLoader\Managed\UnityEngine.dll")) {
+    throw "MelonLoader is installed but no assemblies have been found. Have you run the game at least once since installing?"
 }
 
 # -- CHECK FOR MOD FOLDER --
@@ -29,8 +32,7 @@ if (!(Test-Path -Path "${ModFolder}")) {
     # if that failed, try a relative check
     ${ModFolder} = "${PSScriptRoot}\${ModFolder}"
     if (!(Test-Path -Path "${ModFolder}")) {
-        Write-Host -ForegroundColor red "Mod project folder ${PSScriptRoot}\${ModFolder} does not exist"
-        exit
+        throw "Mod project folder ${PSScriptRoot}\${ModFolder} does not exist."
     }
 }
 
