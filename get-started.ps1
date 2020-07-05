@@ -46,6 +46,8 @@ try {
     Invoke-Expression -Command ".\copy-references.ps1 `"${AudicaPath}`" AudicaMod" 
 } catch {
     Write-Host -ForegroundColor red $_ 
+    Write-Host 'Press any key to exit...';
+    $null = $Host.UI.RawUI.ReadKey('NoEcho,IncludeKeyDown');
     exit 1
 }
 Write-Host -ForegroundColor green "Done!`n"
