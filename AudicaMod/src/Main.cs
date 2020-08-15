@@ -19,7 +19,7 @@ namespace AudicaModding
         {
             if (Input.GetKeyDown(KeyCode.T))
             {
-                MelonModLogger.Log("You just pressed T");
+                MelonLogger.Log("You just pressed T");
             }
         }
     }
